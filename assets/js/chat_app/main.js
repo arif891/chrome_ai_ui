@@ -59,7 +59,7 @@ class ChatApplication {
 
     const aiInitialized = await this.chatService.initialize();
     if (!aiInitialized) {
-      this.ui.addSystemMessage('Chrome AI is not available. Please enable it in chrome://flags/#prompt-api-for-gemini-nano and chrome://flags/#optimization-guide-on-device-model.');
+      this.ui.addSystemMessage('Chrome AI is not available. Please try to refresh the page.');
       console.warn('Could not initialize window.ai. The app may not function correctly.');
     }
     await this.loadModels();
@@ -316,7 +316,7 @@ ${fileContent}
           // Generate preview items if message has array content (with files)
           if (Array.isArray(message.content)) {
             const imageItem = message.content.find(item => item.type === 'image');
-            const fileNameMatch = message.content.find(item => 
+            const fileNameMatch = message.content.find(item =>
               item.type === 'text' && item.value.includes('[File:')
             );
 
