@@ -11,7 +11,7 @@ export class ChatService {
         const availability = await LanguageModel.availability();
         if (availability === 'available') {
             this.isSupported = true;
-            this.aiSession =  await LanguageModel.create({expectedInputs: [{type: 'text', type: 'image' }]});
+            this.aiSession =  await LanguageModel.create({expectedInputs: [{type: 'text', type: 'image', type:  'audio'}]});
             return true;
         }
         return false;
