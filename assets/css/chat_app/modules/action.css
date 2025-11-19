@@ -39,6 +39,9 @@
                     display: flex;
                     gap: var(--space);
                     flex-wrap: wrap;
+                    max-height: 90px;
+                    overflow-y: auto;
+                    border-radius: var(--radius);
 
                     &:empty {
                         display: none;
@@ -63,6 +66,7 @@
 
                         &:has(.file-preview__image) {
                             padding: 0;
+
                             .file-info {
                                 display: none;
                             }
