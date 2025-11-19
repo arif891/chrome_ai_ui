@@ -266,7 +266,6 @@ ${fileContent}
         await this.refreshContext(this.context, this.maxContext);
       }
 
-      console.log(this.context);
     } catch (error) {
       DOMUtils.removeClass(this.ui.root, 'generating');
       console.error('Error processing chat:', error);
