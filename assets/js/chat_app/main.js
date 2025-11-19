@@ -344,7 +344,6 @@ ${fileContent}
         this.ui.scrollToBottom();
         MarkdownUtils.highlightCode();
         await this.refreshContext(conversationInfo.messages, this.maxContext);
-        console.log(this.context);
       }
 
       const sessionInfo = await this.dbManager.db.get(this.config.stores.sessions.name, this.sessionId);
