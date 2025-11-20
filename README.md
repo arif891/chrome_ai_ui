@@ -297,10 +297,10 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 - Refresh the page
 
 ### Getting Help
-- 📖 [Chrome AI Documentation](https://developers.google.com/chrome/updates)
-- 🐛 [Report Bugs](https://github.com/arif891/ai_chat_ui/issues)
-- 💡 [Request Features](https://github.com/arif891/ai_chat_ui/issues)
-- 💬 [Discussions](https://github.com/arif891/ai_chat_ui/discussions)
+- 📖 [Chrome AI Documentation](https://developer.chrome.com/docs/ai/prompt-api)
+- 🐛 [Report Bugs](https://github.com/arif891/chrome_ai_ui/issues)
+- 💡 [Request Features](https://github.com/arif891/chrome_ai_ui/issues)
+- 💬 [Discussions](https://github.com/arif891/chrome_ai_ui/discussions)
 
 ## 📊 Performance
 
