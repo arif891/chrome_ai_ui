@@ -492,7 +492,7 @@
 
                 &::before {
                     inset: 0 0 auto;
-                    background: linear-gradient(var(--bg-color), rgba(var(--bg-color-rgb), .3));
+                    background: linear-gradient(var(--bg-color), transparent);
                 }
 
                 &::after {
