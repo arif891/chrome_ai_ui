@@ -2,7 +2,7 @@
 
 A modern, responsive chat interface for AI conversations using local Large Language Models like Ollama.
 
-![App Screenshot](.github/screenshot.png)
+![App Screenshot](.github/screenshot.avif)
 
 ## Features
 

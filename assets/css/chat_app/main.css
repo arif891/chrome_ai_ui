@@ -5,7 +5,7 @@
 @import url(modules/search.css);
 
 .chat__wrapper {
-    --sidebar-width: 20rem;
+    --sidebar-width: clamp(17rem,22.5vw, 20rem);
 
     height: 100dvh;
     display: grid;
@@ -27,7 +27,7 @@
 
         &.sidebar-open,
         &.sidebar-hover-open:has(.side__nav:hover) {
-            --sidebar-width: 20rem !important;
+            --sidebar-width: clamp(17rem,22.5vw, 20rem) !important;
         }
     }
 
