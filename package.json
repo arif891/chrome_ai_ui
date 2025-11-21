@@ -1,0 +1,29 @@
+{
+  "name": "chrome_ai",
+  "version": "1.0.0",
+  "description": "A modern, feature-rich Progressive Web App (PWA) for seamless AI conversations using Chrome's built-in Gemini Nano model. Built with zero dependencies and optimized for privacy and performance.",
+  "main": "sw.js",
+  "scripts": {
+    "build": "node build.mjs",
+    "build:dev": "node build.mjs --dev",
+    "watch": "node build.mjs --watch",
+    "watch:dev": "node build.mjs --watch --dev",
+    "dev": "node build.mjs --watch --dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arif891/ai_chat_ui.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/arif891/ai_chat_ui/issues"
+  },
+  "homepage": "https://github.com/arif891/ai_chat_ui#readme",
+  "devDependencies": {
+    "esbuild": "0.27.0"
+  }
+}
