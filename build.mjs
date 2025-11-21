@@ -7,6 +7,50 @@ import fs from 'fs'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
+// Function to toggle HTML comments based on build mode
+function toggleHtmlComments(isProduction) {
+  const indexPath = path.join(__dirname, 'index.html')
+  let html = fs.readFileSync(indexPath, 'utf-8')
+  
+  if (isProduction) {
+    // Production mode: uncomment pro blocks, comment dev blocks
+    // Pattern: <!--pro-start-->\n    <!-- CONTENT -->\n    <!--pro-end-->
+    // Result:  <!--pro-start-->\n    CONTENT\n    <!--pro-end-->
+    html = html.replace(/<!--pro-start-->\s*\n\s*<!-- ([\s\S]*?) -->\s*\n\s*<!--pro-end-->/g, 
+      (match, content) => {
+        return `<!--pro-start-->\n    ${content}\n    <!--pro-end-->`
+      }
+    )
+    // Pattern: <!--dev-start-->\n    CONTENT\n    <!--dev-end-->
+    // Result:  <!--dev-start-->\n    <!-- CONTENT -->\n    <!--dev-end-->
+    html = html.replace(/<!--dev-start-->\s*\n([\s\S]*?)\n\s*<!--dev-end-->/g, 
+      (match, content) => {
+        return `<!--dev-start-->\n    <!-- ${content.trim()} -->\n     <!--dev-end-->`
+      }
+    )
+  } else {
+    // Development mode: comment pro blocks, uncomment dev blocks
+    // Pattern: <!--pro-start-->\n    CONTENT\n    <!--pro-end-->
+    // Result:  <!--pro-start-->\n    <!-- CONTENT -->\n    <!--pro-end-->
+    html = html.replace(/<!--pro-start-->\s*\n([\s\S]*?)\n\s*<!--pro-end-->/g, 
+      (match, content) => {
+        return `<!--pro-start-->\n    <!-- ${content.trim()} -->\n    <!--pro-end-->`
+      }
+    )
+    // Pattern: <!--dev-start-->\n    <!-- CONTENT -->\n    <!--dev-end-->
+    // Result:  <!--dev-start-->\n    CONTENT\n    <!--dev-end-->
+    html = html.replace(/<!--dev-start-->\s*\n\s*<!-- ([\s\S]*?) -->\s*\n\s*<!--dev-end-->/g, 
+      (match, content) => {
+        return `<!--dev-start-->\n${content}\n    <!--dev-end-->`
+      }
+    )
+  }
+  
+  fs.writeFileSync(indexPath, html)
+  const mode = isProduction ? '🏭 Production' : '💻 Development'
+  console.log(`${mode} - HTML comments toggled`)
+}
+
 // Custom plugin to output sw.js to root
 const swRootPlugin = {
   name: 'sw-root',
@@ -70,6 +114,11 @@ const isDevMode = process.argv.includes('--dev')
 
 async function build() {
   try {
+    const isProduction = !isDevMode
+    
+    // Toggle HTML comments based on mode
+    toggleHtmlComments(isProduction)
+    
     const modeLabel = isDevMode ? 'Development' : 'Production'
     const minifyLabel = buildConfig.minify ? '(minified)' : '(with source maps)'
     
