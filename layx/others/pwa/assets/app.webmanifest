@@ -1,7 +1,7 @@
 {
-  "name": "Chrome AI",
-  "short_name": "AI",
-  "description": "A comprehensive example of a AI Chat Web App",
+  "name": "Chrome AI Chat",
+  "short_name": "AI Chat",
+  "description": "Private, zero-dependency chat app powered by Chrome's built-in AI (Gemini Nano).",
   "categories": [
     "productivity",
     "utilities"
